@@ -94,8 +94,8 @@ describe('ProductsService', () => {
 
   describe('createProduct', () => {
     it('calls productsRepository.creatProduct() and successfully insert and return the product', async () => {
-      const mockProductPayload = { "name": "Upate 123", "price": 12.22, "type": 0, "locationQty": [{ "locationId": 3, "qty": 3 }, { "locationId": 4, "qty": 4 }] };
-      const mockRes = { name: 'Upate 123', price: 12.22, type: 0, locationQty: [{ locationId: 3, qty: 3 }, { locationId: 4, qty: 4 }] };
+      const mockProductPayload = { "name": "Upate 123", "price": 12.22, "type": 0, "locationQty": "[{\"locationId\":3,\"qty\":3},{\"locationId\":4,\"qty\":4}]" };
+      const mockRes = { name: 'Upate 123', price: 12.22, type: 0, locationQty: "[{\"locationId\":3,\"qty\":3},{\"locationId\":4,\"qty\":4}]" };
 
       productsRepository.creatProduct.mockResolvedValue(mockProductPayload);
       expect(productsRepository.creatProduct).not.toHaveBeenCalled();
@@ -109,8 +109,8 @@ describe('ProductsService', () => {
   describe('updateProduct', () => {
     it('calls productsRepository.updateProduct() and successfully update and return the product', async () => {
       const id = 1;
-      const mockProductPayload = { "name": "Upate 123", "price": 12.22, "type": 0, images: [], "locationQty": [{ "locationId": 3, "qty": 3 }, { "locationId": 4, "qty": 4 }] };
-      const mockRes = { name: 'Upate 123', price: 12.22, type: 0, images: [], locationQty: [{ locationId: 3, qty: 3 }, { locationId: 4, qty: 4 }] }
+      const mockProductPayload = { "name": "Upate 123", "price": 12.22, "type": 0, images: [], "locationQty": "[{\"locationId\":3,\"qty\":3},{\"locationId\":4,\"qty\":4}]" };
+      const mockRes = { name: 'Upate 123', price: 12.22, type: 0, images: [], locationQty: "[{\"locationId\":3,\"qty\":3},{\"locationId\":4,\"qty\":4}]" }
 
       productsRepository.updateProduct.mockResolvedValue(mockProductPayload);
       expect(productsRepository.updateProduct).not.toHaveBeenCalled();

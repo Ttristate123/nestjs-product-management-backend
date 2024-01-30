@@ -23,8 +23,10 @@ export class ProductsService {
     if (productObj) {
       //Insert location wise quantity
       const { locationQty } = createProductDto;
-      if (locationQty && locationQty.length > 0) {
-        locationQty.forEach(async (locationQtyObj: CreateProductLocationDto) => {
+      const locationQtyData: any = JSON.parse(locationQty) || JSON.parse("[]");
+      //console.log("locationQtyData::", JSON.parse(locationQtyData));
+      if (locationQtyData && locationQtyData.length > 0) {
+        locationQtyData.forEach(async (locationQtyObj: CreateProductLocationDto) => {
           const { locationId, qty } = locationQtyObj;
           const productLocationQtyObj: CreateProductLocationDto = { productId: productObj.id, locationId, qty };
           await this.productLocationsRepository.createLocationWiseProductQty(productLocationQtyObj)
@@ -66,9 +68,10 @@ export class ProductsService {
     const { locationQty } = updateProductDto;
 
     await this.productLocationsRepository.delete({ productId: productObj.id });
-
-    if (locationQty && locationQty.length > 0) {
-      locationQty.forEach(async (locationQtyObj: CreateProductLocationDto) => {
+    const locationQtyData: any = JSON.parse(locationQty) || JSON.parse("[]");
+    //console.log("locationQtyData::", locationQtyData);
+    if (locationQtyData && locationQtyData.length > 0) {
+      locationQtyData.forEach(async (locationQtyObj: CreateProductLocationDto) => {
         const { locationId, qty } = locationQtyObj;
         const productLocationQtyObj: CreateProductLocationDto = { productId: productObj.id, locationId, qty };
         await this.productLocationsRepository.createLocationWiseProductQty(productLocationQtyObj)

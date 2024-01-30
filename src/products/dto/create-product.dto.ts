@@ -1,4 +1,4 @@
-import { IsArray, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { CreateProductLocationDto } from './create-product-location.dto';
 import { Type } from 'class-transformer';
 export class CreateProductDto {
@@ -17,11 +17,14 @@ export class CreateProductDto {
     })
     type: number;
 
+    /* @IsArray({
+       message: 'locationQty must be an array',
+   }) */
     @IsOptional()
-    @IsArray({
-        message: 'locationQty must be an array',
+    @IsString({
+        message: 'locationQty must be a string',
     })
-    locationQty: any[];
+    locationQty: string;
 
     //@Type(() => CreateProductLocationDto)
     //locationQty: CreateProductLocationDto[];

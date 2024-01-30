@@ -1,6 +1,6 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateProductDto } from './create-product.dto';
-import { IsArray, IsNotEmpty } from 'class-validator';
+import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { Type } from 'class-transformer';
 import { CreateProductLocationDto } from './create-product-location.dto';
 export class UpdateProductDto extends PartialType(CreateProductDto) {
@@ -20,10 +20,14 @@ export class UpdateProductDto extends PartialType(CreateProductDto) {
     })
     type: number;
 
-    @IsArray({
+    /* @IsArray({
         message: 'locationQty must be an array',
+    }) */
+    @IsOptional()
+    @IsString({
+        message: 'locationQty must be a string',
     })
-    locationQty: any[];
+    locationQty: string;
 
     //@Type(() => CreateProductLocationDto)
     //locationQty: CreateProductLocationDto[];

@@ -27,7 +27,7 @@ export class ProductsController {
   create(@Body() createProductDto: CreateProductDto,
     @UploadedFiles() files: Array<Express.Multer.File>
   ): any {
-    console.log("createProductDto::", createProductDto)
+    //console.log("createProductDto::", createProductDto)
     return this.productsService.create(createProductDto, files);
   }
 
@@ -54,11 +54,11 @@ export class ProductsController {
   ))
 
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto, @UploadedFiles() files: Array<Express.Multer.File>): any {
-    console.log("files", files);
     return this.productsService.update(+id, updateProductDto, files);
   }
 
   @Delete(':id')
+  // 
   remove(@Param('id') id: string): Promise<void> {
     return this.productsService.remove(+id);
   }
