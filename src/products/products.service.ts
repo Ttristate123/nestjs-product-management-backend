@@ -80,7 +80,7 @@ export class ProductsService {
 
     // Upload multiple images
     if (files && files.length > 0) {
-      await this.productImagesRepository.delete({ productId: productObj.id });
+      //await this.productImagesRepository.delete({ productId: productObj.id });
       files.forEach(async (file: any) => {
         const productImageObj: CreateProductImageDto = { productId: productObj.id, image: file.filename };
         await this.productImagesRepository.createProductImage(productImageObj)
