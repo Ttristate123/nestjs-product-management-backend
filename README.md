@@ -26,6 +26,17 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Getting started
+
+`Please follow the Project setup instructions on a development environment`
+
+## Clone Repository
+
+git clone https://github.com/Ttristate123/nestjs-product-management-backend.git
+
+- Download or clone the repository
+- cd nestjs-product-management-backend
+
 ## Installation
 
 ```bash
