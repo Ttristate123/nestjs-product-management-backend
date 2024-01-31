@@ -66,6 +66,15 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Insert default locations
+
+```bash
+INSERT INTO `location` (`id`, `location_name`, `created_at`, `updated_at`) VALUES
+(1,	'India',	'2024-01-29 17:09:44.000000',	'2024-01-29 17:09:44.000000'),
+(2,	'US',	'2024-01-29 17:09:47.000000',	'2024-01-29 17:09:47.000000'),
+(3,	'UK',	'2024-01-29 17:09:50.000000',	'2024-01-29 17:09:50.000000');
+```
+
 ## Test
 
 ```bash
