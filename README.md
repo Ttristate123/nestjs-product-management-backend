@@ -37,6 +37,16 @@ git clone https://github.com/Ttristate123/nestjs-product-management-backend.git
 - Download or clone the repository
 - cd nestjs-product-management-backend
 
+## Set variables in .env file
+
+- DB_CONNECTION=mysql
+- DB_HOST=
+- DB_PORT=
+- DB_DATABASE=
+- DB_USERNAME=
+- DB_PASSWORD=
+- APP_URL=
+
 ## Installation
 
 ```bash
